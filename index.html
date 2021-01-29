@@ -31,7 +31,9 @@
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book./p>
         </div>
 
 
@@ -48,7 +50,7 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -58,20 +60,22 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="firstClassTicket-count" class="form-control text-center" type="text" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <button onclick="noOfTicketChange('firstClassTicket', true)" class="plus-button">+</button>
+                    <button onclick="noOfTicketChange('firstClassTicket', false)" class = "minus-button">-</button>
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="economyClassTicket-count" class="form-control text-center" type="text" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <button onclick="noOfTicketChange('economyClassTicket', true)" class="plus-button">+</button>
+                    <button onclick="noOfTicketChange('economyClassTicket', false)" class = "minus-button">-</button>
                 </div>
             </div>
             <div class="calculations">
@@ -80,7 +84,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="total-price">$500</p>
                     </div>
                 </div>
 
@@ -104,6 +108,53 @@
             </div>
             <button class="btn-style">Book Now</button>
         </div>
+        <script>
+            function noOfTicketChange(ticket, isIncrease){
+            const ticketCount = getInputValue(ticket);
+            let ticketNewCount = ticketCount;
+            if (isIncrease == true){
+               ticketNewCount = ticketCount + 1;
+            }
+            if(isIncrease == false && ticketCount > 0){
+               ticketNewCount = ticketCount - 1;
+            }
+            document.getElementById(ticket + '-count').value = ticketNewCount;
+         }
+         function calculateTotal(){
+            const firstClassTicketCount = getInputValue('firstClassTicket');
+            const economyClassTicketCount = getInputValue('economyClassTicket');
+
+            const totalPrice = firstClassTicketCount * 150 + economyClassTicketCount * 100;
+            document.getElementById('total-price').innerText = '$' + totalPrice;
+
+            const tax = Math.round(totalPrice * 0.1);
+            document.getElementById('tax-amount').innerText = '$' + tax;
+
+            const grandTotal = totalPrice + tax;
+            document.getElementById('grand-total').innerText = '$' + grandTotal;
+         }
+         function getInputValue(ticket){
+            const ticketInput = document.getElementById(ticket + '-count');
+            const ticketCount = parseInt(ticketInput.value);
+            return ticketCount;
+         }
+
+
+
+
+            /*function totalNoOfTickets(noOfTickets, isIncrease) {
+                const ticketCountInput = getInputValue(noOfTickets);
+                let ticketNewCount = ticketCountInput;
+                if (isIncrease == true) {
+                    ticketNewCount = ticketCountInput + 1;
+                }
+                if (isIncrease == false && ticketCountInput > 0){
+                    ticketNewCount = ticketCountInput - 1;
+                }
+                ticketCountInput.value = ticketNewCount;
+                document.getElementById(noOfTickets, '-count').innerText = ticketNewCount;
+            }*/
+        </script>
     </main>
 
     <!--Thank You-->

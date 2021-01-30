@@ -15,6 +15,7 @@
 
 <body>
     <!--Header and Menu Section-->
+    <div id="home-page">
     <header class="container">
         <nav>
             <ul>
@@ -27,7 +28,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main  class="main-content container">
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
@@ -64,7 +65,7 @@
                 </div>
                 <div class="plus-minus-btn">
                     <button onclick="noOfTicketChange('firstClassTicket', true)" class="plus-button">+</button>
-                    <button onclick="noOfTicketChange('firstClassTicket', false)" class = "minus-button">-</button>
+                    <button onclick="noOfTicketChange('firstClassTicket', false)" class="minus-button">-</button>
                 </div>
             </div>
 
@@ -75,7 +76,7 @@
                 </div>
                 <div class="plus-minus-btn">
                     <button onclick="noOfTicketChange('economyClassTicket', true)" class="plus-button">+</button>
-                    <button onclick="noOfTicketChange('economyClassTicket', false)" class = "minus-button">-</button>
+                    <button onclick="noOfTicketChange('economyClassTicket', false)" class="minus-button">-</button>
                 </div>
             </div>
             <div class="calculations">
@@ -106,23 +107,39 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="submitButton" class="btn-style">Book Now</button>
         </div>
-        <script>
-            function noOfTicketChange(ticket, isIncrease){
+
+        
+        
+        
+    </main>
+</div>
+<div id= "payment-successful-area">
+    <h1>Thank You</h1>
+    <h2>Your Payment was Successful</h2>
+    <h3>Your Total Amount: <span id="showAmount">00</span></h3>
+</div>
+    <script>
+        
+        document.getElementById("total-price").innerHTML = "$" + 0;
+        document.getElementById("tax-amount").innerHTML = "$" + 0;
+        document.getElementById("grand-total").innerHTML = "$" + 0;
+
+        function noOfTicketChange(ticket, isIncrease) {
             const ticketCount = getInputValue(ticket);
             let ticketNewCount = ticketCount;
-            if (isIncrease == true){
-               ticketNewCount = ticketCount + 1;
+            if (isIncrease == true) {
+                ticketNewCount = ticketCount + 1;
             }
-            if(isIncrease == false && ticketCount > 0){
-               ticketNewCount = ticketCount - 1;
+            if (isIncrease == false && ticketCount > 0) {
+                ticketNewCount = ticketCount - 1;
             }
             document.getElementById(ticket + '-count').value = ticketNewCount;
             calculateTotal();
-         }
+        }
 
-         function calculateTotal(){
+        function calculateTotal() {
             const firstClassTicketCount = getInputValue('firstClassTicket');
             const economyClassTicketCount = getInputValue('economyClassTicket');
 
@@ -134,30 +151,57 @@
 
             const grandTotal = totalPrice + tax;
             document.getElementById('grand-total').innerText = '$' + grandTotal;
-         }
-         function getInputValue(ticket){
+        }
+        function getInputValue(ticket) {
             const ticketInput = document.getElementById(ticket + '-count');
             const ticketCount = parseInt(ticketInput.value);
             return ticketCount;
-         }
+        }
+
+        /*const bookNowBtn = document.getElementById('submitButton')
+        bookNowBtn.addEventListener("click", function (){
+            const homePage = document.getElementById('home-page');
+            homePage.style.display = none;
+            const paymentSuccessfulArea = document.getElementById('payment-successful-area');
+            paymentSuccessfulArea.style.display = block;
+        });*/
+
+        const bookNowBtn = document.getElementById('submitButton');
+        bookNowBtn.addEventListener('click', function () {
+            const homePage = document.getElementById("home-page");
+            homePage.style.display = "none";
+            const paymentSuccessfulArea = document.getElementById("payment-successful-area")
+            paymentSuccessfulArea.style.display = "block";
+        })
+
+        /*const bookNowBtn = document.getElementById('submitButton')
+        bookNowBtn.addEventListener('click', function(){
+            if(grandTotal.calculateTotal == 0){
+                alert('Please')
+            }
+        })*/
+        
+
+        /*document.getElementById('submitButton').addEventListener('click', function(){
+            alert("Thank You" + '\n' +
+            "Total Payment: "+ grandTotal);
+        })*/
 
 
 
-
-            /*function totalNoOfTickets(noOfTickets, isIncrease) {
-                const ticketCountInput = getInputValue(noOfTickets);
-                let ticketNewCount = ticketCountInput;
-                if (isIncrease == true) {
-                    ticketNewCount = ticketCountInput + 1;
-                }
-                if (isIncrease == false && ticketCountInput > 0){
-                    ticketNewCount = ticketCountInput - 1;
-                }
-                ticketCountInput.value = ticketNewCount;
-                document.getElementById(noOfTickets, '-count').innerText = ticketNewCount;
-            }*/
-        </script>
-    </main>
+        /*function totalNoOfTickets(noOfTickets, isIncrease) {
+            const ticketCountInput = getInputValue(noOfTickets);
+            let ticketNewCount = ticketCountInput;
+            if (isIncrease == true) {
+                ticketNewCount = ticketCountInput + 1;
+            }
+            if (isIncrease == false && ticketCountInput > 0){
+                ticketNewCount = ticketCountInput - 1;
+            }
+            ticketCountInput.value = ticketNewCount;
+            document.getElementById(noOfTickets, '-count').innerText = ticketNewCount;
+        }*/
+    </script>
 
     <!--Thank You-->
 </body>

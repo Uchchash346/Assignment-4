@@ -5,18 +5,22 @@
     text-decoration: none;
     list-style-type: none;
 }
-body{
-    font-family: 'Roboto', sans-serif;
-    background:url("images/ship.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
-    background-size: cover;
-}
+/*body{
+    
+}*/
 nav{
     height: 50px;
     width: 100%;
     padding: 20px 0;
+}
+#home-page{
+    background:url("images/ship.png");
+    font-family: 'Roboto', sans-serif;
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
 }
 .container{
     width: 1200px;
@@ -134,4 +138,27 @@ nav ul li a:hover, a.active{
 }
 button{
     cursor: pointer;
+}
+#payment-successful-area{
+    height: auto;
+    padding: 200px;
+    margin-left: 75px;
+    text-align: center;
+    display: none;
+    background-color: white;
+}
+#payment-successful-area h1{
+    font-size: 60px;
+    line-height: 0.5;
+    color: rgb(32, 192, 32);
+}
+#payment-successful-area h2{
+    font-size: 40px;
+    line-height: 1.2;
+    color: rgb(228, 64, 43);
+}
+#payment-successful-area h3{
+    font-size: 30px;
+    line-height: 1;
+    color: rgba(54, 57, 88, 1);
 }

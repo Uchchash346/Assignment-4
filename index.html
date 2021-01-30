@@ -118,7 +118,7 @@
 <div id= "payment-successful-area">
     <h1>Thank You</h1>
     <h2>Your Payment was Successful</h2>
-    <h3>Your Total Amount: <span id="showAmount">00</span></h3>
+    <h3>Your Total Amount: <span id="showAmount">0</span></h3>
 </div>
     <script>
         
@@ -150,13 +150,17 @@
             document.getElementById('tax-amount').innerText = '$' + tax;
 
             const grandTotal = totalPrice + tax;
-            document.getElementById('grand-total').innerText = '$' + grandTotal;
+            const finalAmount = document.getElementById('grand-total').innerText = '$' + grandTotal;
         }
         function getInputValue(ticket) {
             const ticketInput = document.getElementById(ticket + '-count');
             const ticketCount = parseInt(ticketInput.value);
             return ticketCount;
         }
+        
+        /*var finalAmount = document.getElementById('grand-total');
+        document.getElementById('showAmount').innerHTML = finalAmount;*/
+
 
         /*const bookNowBtn = document.getElementById('submitButton')
         bookNowBtn.addEventListener("click", function (){
@@ -173,6 +177,40 @@
             const paymentSuccessfulArea = document.getElementById("payment-successful-area")
             paymentSuccessfulArea.style.display = "block";
         })
+
+        document.getElementById("showAmount").value =
+    document.getElementById("grand-total").value
+
+        /*const finalShowAmount = document.getElementById('grand-total');
+        finalShowAmount.addEventListener('paste',function(){
+            const finalAmountNumber = getInputValue("grand-total");
+            updateAmount("grand-total", finalAmountNumber);
+        })
+        function updateAmount(){
+
+        }*/
+        /*var inputValue = document.getElementById("grand-total").value;
+        document.getElementById("showAmount").value = inputValue; */
+        /*let finalShowAmount = (document.querySelector('showAmount').textContent = grandTotal);
+        document.getElementById('showAmount').value = finalShowAmount;*/
+
+        /*var finalShowAmount =  document.getElementById('showAmount').value ;
+        //let amountTotal = 0;
+        document.getElementById('grand-total').value = '$'+finalShowAmount*/
+        /*const paymentSuccessAmount = document.getElementById('grand-total').value;
+        const finalCost =  document.getElementById('showAmount').innerText = paymentSuccessAmount;
+        const paymentFinalAmount = parseFloat(finalCost);*/
+        //const showFinalAmount = document.getElementById('showAmount').value;
+        //document.getElementById('grand-total').innerText = '$' + showFinalAmount;
+
+
+
+        /*function successfulAreaAmount(finalAmount){
+        const paymentSuccessAmount = document.getElementById('grand-total').value;
+        document.getElementById('showAmount').innerText = paymentSuccessAmount;
+        //const paymentFinalAmount = parseFloat(finalCost);
+        //return finalCost;
+        }*/
 
         /*const bookNowBtn = document.getElementById('submitButton')
         bookNowBtn.addEventListener('click', function(){

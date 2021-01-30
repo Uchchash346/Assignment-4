@@ -132,3 +132,6 @@ nav ul li a:hover, a.active{
     font-size: 30px;
     color: #3352F2;
 }
+button{
+    cursor: pointer;
+}

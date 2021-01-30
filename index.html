@@ -176,69 +176,12 @@
             homePage.style.display = "none";
             const paymentSuccessfulArea = document.getElementById("payment-successful-area")
             paymentSuccessfulArea.style.display = "block";
+            document.getElementById("showAmount").innerText =document.getElementById("grand-total").innerText 
         })
 
-        document.getElementById("showAmount").value =
-    document.getElementById("grand-total").value
-
-        /*const finalShowAmount = document.getElementById('grand-total');
-        finalShowAmount.addEventListener('paste',function(){
-            const finalAmountNumber = getInputValue("grand-total");
-            updateAmount("grand-total", finalAmountNumber);
-        })
-        function updateAmount(){
-
-        }*/
-        /*var inputValue = document.getElementById("grand-total").value;
-        document.getElementById("showAmount").value = inputValue; */
-        /*let finalShowAmount = (document.querySelector('showAmount').textContent = grandTotal);
-        document.getElementById('showAmount').value = finalShowAmount;*/
-
-        /*var finalShowAmount =  document.getElementById('showAmount').value ;
-        //let amountTotal = 0;
-        document.getElementById('grand-total').value = '$'+finalShowAmount*/
-        /*const paymentSuccessAmount = document.getElementById('grand-total').value;
-        const finalCost =  document.getElementById('showAmount').innerText = paymentSuccessAmount;
-        const paymentFinalAmount = parseFloat(finalCost);*/
-        //const showFinalAmount = document.getElementById('showAmount').value;
-        //document.getElementById('grand-total').innerText = '$' + showFinalAmount;
-
-
-
-        /*function successfulAreaAmount(finalAmount){
-        const paymentSuccessAmount = document.getElementById('grand-total').value;
-        document.getElementById('showAmount').innerText = paymentSuccessAmount;
-        //const paymentFinalAmount = parseFloat(finalCost);
-        //return finalCost;
-        }*/
-
-        /*const bookNowBtn = document.getElementById('submitButton')
-        bookNowBtn.addEventListener('click', function(){
-            if(grandTotal.calculateTotal == 0){
-                alert('Please')
-            }
-        })*/
         
 
-        /*document.getElementById('submitButton').addEventListener('click', function(){
-            alert("Thank You" + '\n' +
-            "Total Payment: "+ grandTotal);
-        })*/
-
-
-
-        /*function totalNoOfTickets(noOfTickets, isIncrease) {
-            const ticketCountInput = getInputValue(noOfTickets);
-            let ticketNewCount = ticketCountInput;
-            if (isIncrease == true) {
-                ticketNewCount = ticketCountInput + 1;
-            }
-            if (isIncrease == false && ticketCountInput > 0){
-                ticketNewCount = ticketCountInput - 1;
-            }
-            ticketCountInput.value = ticketNewCount;
-            document.getElementById(noOfTickets, '-count').innerText = ticketNewCount;
-        }*/
+        
     </script>
 
     <!--Thank You-->
